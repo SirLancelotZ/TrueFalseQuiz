@@ -3,6 +3,7 @@ package com.example.truefalsequiz;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -15,6 +16,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
+
+    private Quiz quiz;
+    private TextView textviewQuestions;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return outputStream.toString();
     }
+
+
+
 
 
 }
