@@ -7,32 +7,41 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button_main_true"
+        android:id="@+id/button_quiz_true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="true"
-        app:layout_constraintEnd_toStartOf="@+id/button_main_false"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/button_quiz_false"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="283dp" />
 
     <Button
-        android:id="@+id/button_main_false"
+        android:id="@+id/button_quiz_false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="False"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_main_true"
+        app:layout_constraintStart_toEndOf="@+id/button_quiz_true"
         tools:layout_editor_absoluteY="283dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_quiz_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/button_main_true"
-        tools:layout_editor_absoluteX="163dp" />
+        app:layout_constraintBottom_toTopOf="@+id/button_quiz_true"
+        tools:layout_editor_absoluteX="222dp" />
+
+    <TextView
+        android:id="@+id/textView_quiz_questionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="92dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/button_quiz_true"
+        app:layout_constraintEnd_toStartOf="@+id/textView_quiz_question" />
 </android.support.constraint.ConstraintLayout>
