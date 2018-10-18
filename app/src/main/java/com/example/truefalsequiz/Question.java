@@ -1,11 +1,13 @@
 package com.example.truefalsequiz;
 
-class Question {
+
+public class Question {
     private String question;
     private boolean answer;
 
-    public Question(String question) {
+    public Question(String question, boolean answer) {
         this.question = question;
+        this.answer = answer;
     }
 
     public String getQuestion() {
@@ -33,3 +35,5 @@ class Question {
         }
     }
 }
+
+

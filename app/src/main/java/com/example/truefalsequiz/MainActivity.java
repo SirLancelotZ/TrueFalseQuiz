@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextView textViewQuestionNumber;
     private TextView textViewQuestion;
+    private TextView textViewScore;
     private Button buttonTrue;
     private Button buttonFalse;
     private Quiz quiz;
@@ -44,10 +46,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         quiz = new Quiz(0, 1, questionList);
 
+
         textViewQuestionNumber.setText(quiz.getCurrentQuestion() + "");
         textViewQuestion.setText(quiz.getQuestions().get(0).getQuestion());
 
     }
+
+
+
+
+
+
+
 
     private void setListeners() {
         buttonFalse.setOnClickListener(this);
@@ -83,7 +93,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.button_quiz_false:
-
+                if(quiz.getQuestions().get(quiz.getCurrentQuestion()).isAnswer() == false){
+                    Toast.makeText(this, "CORRECT ANSWER!", Toast.LENGTH_SHORT).show();
+                    quiz.setScore(quiz.getScore() + 1);
+                }
+                else
+                {
+                    Toast.makeText(this, "WRONG ANSWER!", Toast.LENGTH_SHORT).show();
+                }
+                if(quiz.isThereAnotherQuestion()) {
+                    quiz.nextQuestion();
+                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestionDisplay() + " out of 10");
+                    textViewQuestion.setText(quiz.getQuestions().get(quiz.getCurrentQuestion()).getQuestion());
+                    textViewScore.setText("Score: " + quiz.getScore());
+                }
+                else
+                {
+                    //send to new activity
+                }
+                break;
+            case R.id.button_quiz_true:
+                if(quiz.getQuestions().get(quiz.getCurrentQuestion()).isAnswer() == true){
+                    Toast.makeText(this, "CORRECT ANSWER!", Toast.LENGTH_SHORT).show();
+                    quiz.setScore(quiz.getScore() + 1);
+                }
+                else
+                {
+                    Toast.makeText(this, "WRONG ANSWER!", Toast.LENGTH_SHORT).show();
+                }
+                if(quiz.isThereAnotherQuestion()) {
+                    quiz.nextQuestion();
+                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestionDisplay() + " out of 10");
+                    textViewQuestion.setText(quiz.getQuestions().get(quiz.getCurrentQuestion()).getQuestion());
+                    textViewScore.setText("Score: " + quiz.getScore());
+                }
+                else
+                {
+                    //send to new activity
+                }
+                break;
         }
     }
 }
