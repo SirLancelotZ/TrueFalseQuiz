@@ -1,6 +1,7 @@
 package com.example.truefalsequiz;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -67,28 +68,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void wireWidgets() {
         textViewQuestionNumber = findViewById(R.id.textView_quiz_questionNumber);
         textViewQuestion = findViewById(R.id.textView_quiz_question);
+        textViewScore = findViewById(R.id.textView_score_score);
         buttonTrue = findViewById(R.id.button_quiz_true);
         buttonFalse = findViewById(R.id.button_quiz_false);
     }
 
 
-
-    public String readTextFile(InputStream inputStream) {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
-        byte buf[] = new byte[1024];
-        int len;
-        try {
-            while ((len = inputStream.read(buf)) != -1) {
-                outputStream.write(buf, 0, len);
-            }
-            outputStream.close();
-            inputStream.close();
-        } catch (IOException e) {
-
-        }
-        return outputStream.toString();
-    }
 
     public void onClick(View view) {
         switch(view.getId()){
@@ -101,15 +86,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 {
                     Toast.makeText(this, "WRONG ANSWER!", Toast.LENGTH_SHORT).show();
                 }
+                //send to new activity
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
                     textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestionDisplay() + " out of 10");
                     textViewQuestion.setText(quiz.getQuestions().get(quiz.getCurrentQuestion()).getQuestion());
                     textViewScore.setText("Score: " + quiz.getScore());
                 }
-                else
-                {
-                    //send to new activity
+                else {
+                    Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
+
+                    startActivity(intentScore);
                 }
                 break;
             case R.id.button_quiz_true:
@@ -133,5 +120,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
+    }
+
+    public String readTextFile(InputStream inputStream) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        byte buf[] = new byte[1024];
+        int len;
+        try {
+            while ((len = inputStream.read(buf)) != -1) {
+                outputStream.write(buf, 0, len);
+            }
+            outputStream.close();
+            inputStream.close();
+        } catch (IOException e) {
+
+        }
+        return outputStream.toString();
     }
 }

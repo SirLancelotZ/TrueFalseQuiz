@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/button_quiz_true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110"
+        android:layout_height="90"
         android:layout_marginBottom="8dp"
         android:text="@string/quiz_true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,8 +19,8 @@
 
     <Button
         android:id="@+id/button_quiz_false"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
         android:layout_marginBottom="8dp"
         android:text="@string/quiz_false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,7 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView_quiz_questionNumber"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
 
     <TextView
         android:id="@+id/textView_quiz_questionNumber"
@@ -56,4 +57,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_score_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Score"
+        app:layout_constraintBottom_toTopOf="@+id/textView_quiz_question"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="249dp" />
 </android.support.constraint.ConstraintLayout>
