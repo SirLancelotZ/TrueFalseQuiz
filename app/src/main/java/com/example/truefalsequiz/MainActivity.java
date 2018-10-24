@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonFalse;
     private Quiz quiz;
 
+    public static final String EXTRA_MESSAGE = "finish";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Question[] questions = gson.fromJson(sJSON, Question[].class);
         // convert your array to a list using the Arrays utility class
         List<Question> questionList = Arrays.asList(questions);
+        questionList = Arrays.asList(questions);
 
         quiz = new Quiz(0, 1, questionList);
 
@@ -116,7 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else
                 {
-                    //send to new activity
+                    sendToEnd();
+                    recreate(); //send to new activity
                 }
                 break;
         }
@@ -138,4 +142,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return outputStream.toString();
     }
+
+    private void sendToEnd() {
+        Intent intentFinish = new Intent(this, ScoreActivity.class);
+        String score = quiz.getScore() + "";
+        intentFinish.putExtra(EXTRA_MESSAGE, score);
+        startActivity(intentFinish);
+
+    }
+
+
+
 }
