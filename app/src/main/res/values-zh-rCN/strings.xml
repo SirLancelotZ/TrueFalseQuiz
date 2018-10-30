@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">问答游戏</string>
+    <string name="quiz_true">正确</string>
+    <string name="quiz_false">错误</string>
+</resources>

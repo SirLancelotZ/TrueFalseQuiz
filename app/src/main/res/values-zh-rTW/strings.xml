@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TrueFalseQuiz</string>
+    <string name="quiz_true">外国人不懂中文</string>
 </resources>

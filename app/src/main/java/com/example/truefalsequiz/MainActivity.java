@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.content.res.Configuration;
+import java.util.Locale;
+
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonFalse;
     private Quiz quiz;
 
-    public static final String EXTRA_MESSAGE = "finish";
+    public static final String EXTRA_MESSAGE = "Quiz completed";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
