@@ -9,9 +9,8 @@ import android.widget.TextView;
 public class ScoreActivity extends AppCompatActivity {
 
     private Button playAgain;
-    private TextView textViewscore;
+    private TextView textViewScore;
     private TextView textViewCompletion;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +21,15 @@ public class ScoreActivity extends AppCompatActivity {
         textViewCompletion.setText("You have completed this quiz!");
 
         Intent receiveIntent = getIntent();
+        //Bundle score = receiveIntent.getExtras();
         String score = receiveIntent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        textViewscore.setText("Your score:" + score);
+        textViewScore.setText("Your score:" + score);
 
     }
 
-
-
-
     private void wireWidgets() {
         textViewCompletion = findViewById(R.id.textView_score_completion);
-        textViewscore = findViewById(R.id.textView_score_score);
+        textViewScore = findViewById(R.id.textView_score_score);
         playAgain = findViewById(R.id.button_score_playagain);
     }
 }

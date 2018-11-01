@@ -61,8 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initialize(Quiz quiz) {
         textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
+        textViewQuestionNumber.setText("Question " + quiz.getQuestionIndex());
+        //textViewScore.setText(quiz.getScore());
     }
-
 
     private void setListeners() {
         buttonFalse.setOnClickListener(this);
@@ -77,53 +78,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonFalse = findViewById(R.id.button_quiz_false);
     }
 
-
-
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.button_quiz_false:
-              //  if(quiz.getQuestions().get(quiz.getCurrentQuestion().isAnswer() == false){
                 if(quiz.getCurrentQuestion().isAnswer() == false){
-                    Toast.makeText(this, "CORRECT ANSWER!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "CORRECT!", Toast.LENGTH_SHORT).show();
                     quiz.setScore(quiz.getScore() + 1);
                 }
                 else
                 {
-                    Toast.makeText(this, "WRONG ANSWER!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "WRONG!", Toast.LENGTH_SHORT).show();
                 }
-                //send to new activity
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
-                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestion());
+                    textViewQuestionNumber.setText("Question " + quiz.getQuestionIndex());
                     textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
                     textViewScore.setText("Score: " + quiz.getScore());
                 }
                 else {
                     //Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
                         sendToEnd();
-                        recreate();
+                        this.recreate();
                     //startActivity(ScoreActivity);
                 }
                 break;
             case R.id.button_quiz_true:
                 if(quiz.getCurrentQuestion().isAnswer() == true){
-                    Toast.makeText(this, "CORRECT ANSWER!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "CORRECT!", Toast.LENGTH_SHORT).show();
                     quiz.setScore(quiz.getScore() + 1);
                 }
                 else
                 {
-                    Toast.makeText(this, "WRONG ANSWER!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "WRONG", Toast.LENGTH_SHORT).show();
                 }
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
-                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestion());
+                    textViewQuestionNumber.setText("Question " + quiz.getQuestionIndex());
                     textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
                     textViewScore.setText("Score: " + quiz.getScore());
                 }
                 else
                 {
                     sendToEnd();
-                    recreate();
+                    this.recreate();
                 }
                 break;
         }
@@ -147,9 +144,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void sendToEnd() {
-        Intent intentFinish = new Intent(this, ScoreActivity.class);
-        String score = "" + quiz.getScore();
-        intentFinish.putExtra(EXTRA_MESSAGE, score);
+        Intent intentFinish = new Intent(MainActivity.this, ScoreActivity.class);
+        //String score = "" + quiz.getScore();
+        intentFinish.putExtra(EXTRA_MESSAGE, String.valueOf(quiz.getScore()));
         startActivity(intentFinish);
     }
 
