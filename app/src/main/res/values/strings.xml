@@ -2,4 +2,7 @@
     <string name="app_name">TrueFalseQuiz</string>
     <string name="quiz_true">true</string>
     <string name="quiz_false">False</string>
+    <string name="play_again">Play Again?</string>
+    <string name="completion">completion</string>
+    <string name="score">score</string>
 </resources>

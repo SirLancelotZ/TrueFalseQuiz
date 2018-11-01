@@ -3,4 +3,7 @@
     <string name="app_name">问答游戏</string>
     <string name="quiz_true">正确</string>
     <string name="quiz_false">错误</string>
+    <string name="play_again">再玩一次?</string>
+    <string name="completion">完成</string>
+    <string name="score">分数</string>
 </resources>

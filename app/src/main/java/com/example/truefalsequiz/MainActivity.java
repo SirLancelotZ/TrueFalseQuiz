@@ -49,21 +49,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Question[] questions = gson.fromJson(sJSON, Question[].class);
         // convert your array to a list using the Arrays utility class
         List<Question> questionList = Arrays.asList(questions);
-        questionList = Arrays.asList(questions);
+        // questionList = Arrays.asList(questions);
 
-        quiz = new Quiz(0, 1, questionList);
+        quiz = new Quiz(questionList);
 
-
-        textViewQuestionNumber.setText(quiz.getCurrentQuestion() + "");
-        textViewQuestion.setText(quiz.getQuestions().get(0).getQuestion());
+        wireWidgets();
+        setListeners();
+        initialize(quiz);
 
     }
 
-
-
-
-
-
+    private void initialize(Quiz quiz) {
+        textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
+    }
 
 
     private void setListeners() {
@@ -84,7 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.button_quiz_false:
-                if(quiz.getQuestions().get(quiz.getCurrentQuestion()).isAnswer() == false){
+              //  if(quiz.getQuestions().get(quiz.getCurrentQuestion().isAnswer() == false){
+                if(quiz.getCurrentQuestion().isAnswer() == false){
                     Toast.makeText(this, "CORRECT ANSWER!", Toast.LENGTH_SHORT).show();
                     quiz.setScore(quiz.getScore() + 1);
                 }
@@ -95,18 +94,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //send to new activity
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
-                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestionDisplay() + " out of 10");
-                    textViewQuestion.setText(quiz.getQuestions().get(quiz.getCurrentQuestion()).getQuestion());
+                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestion());
+                    textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
                     textViewScore.setText("Score: " + quiz.getScore());
                 }
                 else {
-                    Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
-
-                    startActivity(intentScore);
+                    //Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
+                        sendToEnd();
+                        recreate();
+                    //startActivity(ScoreActivity);
                 }
                 break;
             case R.id.button_quiz_true:
-                if(quiz.getQuestions().get(quiz.getCurrentQuestion()).isAnswer() == true){
+                if(quiz.getCurrentQuestion().isAnswer() == true){
                     Toast.makeText(this, "CORRECT ANSWER!", Toast.LENGTH_SHORT).show();
                     quiz.setScore(quiz.getScore() + 1);
                 }
@@ -116,14 +116,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
-                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestionDisplay() + " out of 10");
-                    textViewQuestion.setText(quiz.getQuestions().get(quiz.getCurrentQuestion()).getQuestion());
+                    textViewQuestionNumber.setText("Question " + quiz.getCurrentQuestion());
+                    textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
                     textViewScore.setText("Score: " + quiz.getScore());
                 }
                 else
                 {
                     sendToEnd();
-                    recreate(); //send to new activity
+                    recreate();
                 }
                 break;
         }
@@ -148,10 +148,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void sendToEnd() {
         Intent intentFinish = new Intent(this, ScoreActivity.class);
-        String score = quiz.getScore() + "";
+        String score = "" + quiz.getScore();
         intentFinish.putExtra(EXTRA_MESSAGE, score);
         startActivity(intentFinish);
-
     }
 
 

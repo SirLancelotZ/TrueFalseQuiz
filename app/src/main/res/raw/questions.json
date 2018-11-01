@@ -1,14 +1,22 @@
 [
   {
-    "question": "Are you human?",
+    "question": "Is is possible to exit Vim?",
     "answer": true
   },
   {
-    "question": "Do you really think you are human?",
+    "question": "Is PHP the best language?",
     "answer": false
   },
   {
-    "question": "Do arrays start at 1?",
+    "question": "Is Mr Shorr the best computer science teacher?",
     "answer": true
   },
+  {
+    "question": "Is BlueJ the superior IDE?",
+    "answer": true
+  },
+  {
+    "question": "Is tab the only correct way to indent text?",
+    "answer": true
+  }
 ]

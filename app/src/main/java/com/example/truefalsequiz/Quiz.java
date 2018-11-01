@@ -5,14 +5,14 @@ import java.util.List;
 public class Quiz {
     private int score;
     private int currentQuestion;
-    private int display;
     private List<Question> questions;
 
-    public Quiz(int score, int currentQuestion, List<Question> questions) {
-        this.score = score;
-        this.currentQuestion = currentQuestion;
+
+
+    public Quiz(List<Question> questions) {
+        score = 0;
+        currentQuestion = 0;
         this.questions = questions;
-        this.display = display;
     }
 
     public int getScore() {
@@ -31,11 +31,6 @@ public class Quiz {
         this.currentQuestion = currentQuestion;
     }
 
-    public int getCurrentQuestionDisplay(){
-        display++;
-        return display;
-    }
-
 
     public List<Question> getQuestions() {
         return questions;
@@ -45,26 +40,23 @@ public class Quiz {
         this.questions = questions;
     }
 
+    public int getNextQuestion() {
+        currentQuestion++;
+        return currentQuestion;
+    }
+
     public void nextQuestion(){
         if(isThereAnotherQuestion()){
             currentQuestion++;
         }
     }
 
-    @Override
-    public String toString() {
-        return "Quiz{" +
-                "score=" + score +
-                ", currentQuestion=" + currentQuestion +
-                ", questions=" + questions +
-                '}';
-    }
-
     public boolean isThereAnotherQuestion() {
         if(currentQuestion < questions.size()){
             return true;
         }
-        else{
+        else
+            {
             return false;
         }
 
