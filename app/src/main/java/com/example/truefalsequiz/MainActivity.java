@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initialize(Quiz quiz) {
         textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
         textViewQuestionNumber.setText(getString(R.string.main_question) + quiz.getQuestionIndex());
-        //textViewScore.setText(quiz.getScore());
+        textViewScore.setText(getString(R.string.main_score)+quiz.getScore());
     }
 
     private void setListeners() {
@@ -149,7 +149,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         intentFinish.putExtra(EXTRA_MESSAGE, String.valueOf(quiz.getScore()));
         startActivity(intentFinish);
     }
-
-
 
 }

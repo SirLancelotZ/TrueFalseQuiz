@@ -3,6 +3,7 @@ package com.example.truefalsequiz;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,13 +30,22 @@ public class ScoreActivity extends AppCompatActivity {
 
         //newString = score.getString(MainActivity.EXTRA_MESSAGE);
         //textViewScore.setText(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
-        textViewScore.setText(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
+        textViewScore.setText(getString(R.string.main_score)+getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
 
+
+        playAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent restart = new Intent(ScoreActivity.this, MainActivity.class);
+                startActivity(restart);
+            }
+
+    });
     }
 
     private void wireWidgets() {
         textViewCompletion = findViewById(R.id.textView_score_completion);
-        textViewScore = findViewById(R.id.textView_score_score);
+        textViewScore = findViewById(R.id.textView_score);
         playAgain = findViewById(R.id.button_score_playagain);
     }
 }
