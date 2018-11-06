@@ -5,4 +5,8 @@
     <string name="play_again">Play Again?</string>
     <string name="completion">completion</string>
     <string name="score">score</string>
+    <string name="main_question">"Question: "</string>
+    <string name="main_score">Score:</string>
+    <string name="yourscore">Your score:</string>
+    <string name="score_completion">You have completed this quiz!</string>
 </resources>

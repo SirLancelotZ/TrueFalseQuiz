@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initialize(Quiz quiz) {
         textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
-        textViewQuestionNumber.setText("Question " + quiz.getQuestionIndex());
+        textViewQuestionNumber.setText(getString(R.string.main_question) + quiz.getQuestionIndex());
         //textViewScore.setText(quiz.getScore());
     }
 
@@ -91,9 +91,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
-                    textViewQuestionNumber.setText("Question " + quiz.getQuestionIndex());
+                    textViewQuestionNumber.setText(getString(R.string.main_question) + quiz.getQuestionIndex());
                     textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
-                    textViewScore.setText("Score: " + quiz.getScore());
+                    textViewScore.setText(getString(R.string.main_score) + quiz.getScore());
                 }
                 else {
                     //Intent intentScore = new Intent(MainActivity.this, ScoreActivity.class);
@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
-                    textViewQuestionNumber.setText("Question " + quiz.getQuestionIndex());
+                    textViewQuestionNumber.setText(getString(R.string.main_question) + quiz.getQuestionIndex());
                     textViewQuestion.setText(quiz.getCurrentQuestion().getQuestion());
-                    textViewScore.setText("Score: " + quiz.getScore());
+                    textViewScore.setText(getString(R.string.main_score) + quiz.getScore());
                 }
                 else
                 {

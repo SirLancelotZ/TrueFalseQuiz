@@ -18,5 +18,9 @@
   {
     "question": "Is tab the only correct way to indent text?",
     "answer": true
+  },
+  {
+    "question": "Is SQL pronounced \"Sequel\"?",
+    "answer": true
   }
 ]

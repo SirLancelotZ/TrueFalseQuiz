@@ -18,12 +18,18 @@ public class ScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         wireWidgets();
 
-        textViewCompletion.setText("You have completed this quiz!");
+        textViewCompletion.setText(R.string.score_completion);
 
-        Intent receiveIntent = getIntent();
+        //String newString;
+
+        //Intent receiveIntent = getIntent();
         //Bundle score = receiveIntent.getExtras();
-        String score = receiveIntent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        textViewScore.setText("Your score:" + score);
+        //String score = receiveIntent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        //textViewScore.setText(getString(R.string.yourscore) + score);
+
+        //newString = score.getString(MainActivity.EXTRA_MESSAGE);
+        //textViewScore.setText(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
+        textViewScore.setText(getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE));
 
     }
 
