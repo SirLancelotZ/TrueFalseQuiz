@@ -10,4 +10,6 @@
     <string name="main_score">分数：</string>
     <string name="yourscore">你的分数：</string>
     <string name="score_completion">问答游戏已被您完成！</string>
+    <string name="correct">回答正确!</string>
+    <string name="wrong">回答错误!</string>
 </resources>

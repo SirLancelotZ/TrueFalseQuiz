@@ -22,5 +22,26 @@
   {
     "question": "Is SQL pronounced \"Sequel\"?",
     "answer": true
+  },
+  {
+    "question": "If you wrote \"5\" in C, It will become \"6\" in C++?",
+    "answer": false
+  },
+  {
+    "question": "Do 3 billion devices run Java?",
+    "answer": false
+  },
+  {
+    "question": "Is Java to JavaScript like ham is to hamster?",
+    "answer": false
+  },
+  {
+    "question": "Is Scratch the language that Skynet is built on?",
+    "answer": true
   }
+
+
+
+
+
 ]

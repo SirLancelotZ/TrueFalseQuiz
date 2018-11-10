@@ -82,12 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.button_quiz_false:
                 if(quiz.getCurrentQuestion().isAnswer() == false){
-                    Toast.makeText(this, "CORRECT!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.correct, Toast.LENGTH_SHORT).show();
                     quiz.setScore(quiz.getScore() + 1);
                 }
                 else
                 {
-                    Toast.makeText(this, "WRONG!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.wrong, Toast.LENGTH_SHORT).show();
                 }
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
@@ -104,12 +104,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button_quiz_true:
                 if(quiz.getCurrentQuestion().isAnswer() == true){
-                    Toast.makeText(this, "CORRECT!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.correct, Toast.LENGTH_SHORT).show();
                     quiz.setScore(quiz.getScore() + 1);
                 }
                 else
                 {
-                    Toast.makeText(this, "WRONG", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.wrong, Toast.LENGTH_SHORT).show();
                 }
                 if(quiz.isThereAnotherQuestion()) {
                     quiz.nextQuestion();
