@@ -1,0 +1,47 @@
+[
+  {
+    "question": "Vim无法被退出?",
+    "answer": true
+  },
+  {
+    "question": "PHP是最好的语言吗?",
+    "answer": false
+  },
+  {
+    "question": "Shorr是最好的计算机科学教师吗?",
+    "answer": true
+  },
+  {
+    "question": "BlueJ是最好的IDE吗?",
+    "answer": true
+  },
+  {
+    "question": "Tab是唯一的选择吗?",
+    "answer": true
+  },
+  {
+    "question": "SQL 读作 \"Sequel\" 吗?",
+    "answer": true
+  },
+  {
+    "question": "If you wrote \"5\" in C, It will become \"6\" in C++?",
+    "answer": false
+  },
+  {
+    "question": "3 billion devices运行Java吗?",
+    "answer": false
+  },
+  {
+    "question": "Is Java to JavaScript like ham is to hamster?",
+    "answer": false
+  },
+  {
+    "question": "Skynet是基于Scratch编写的吗?",
+    "answer": true
+  }
+
+
+
+
+
+]
